@@ -1,0 +1,18 @@
+# gitleaks config for loom
+
+[allowlist]
+description = "Loom has no real secrets — these are false positives in templates/docs"
+paths = [
+  "(?i)^internal/render/templates/",
+  "(?i)^README.md$",
+  "(?i)^COMMANDS.md$",
+  "(?i)^scripts/",
+]
+regexes = [
+  # go.mod version pins and module paths that look like tokens
+  '''(?i)(go\.mod|go\.sum).*?(v[0-9]+\.[0-9]+\.[0-9]+)''',
+]
+
+# Default rules from gitleaks are used (AWS, GitHub, Slack, etc.)
+# Only the allowlist above relaxes false positives in our templates.
+# Run with: gitleaks detect --config .gitleaks.toml

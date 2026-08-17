@@ -20,28 +20,27 @@
 
 Install once, then use `loom` anywhere.
 
-### Quick — private-repo safe (recommended)
+### `go install` (recommended)
 
-> Your repo can be private. Go's module proxy and checksum DB (`sum.golang.org`)
-> cannot reach private repositories, so a plain `go install` fails with
-> `404 Not Found`. Setting `GOPRIVATE` makes Go fetch straight from GitHub
-> using your cached git credentials instead. **Verified working.**
-
-**PowerShell:**
 ```powershell
-$env:GOPRIVATE = "github.com/Gudapati-sai/loom"      # permanent: go env -w GOPRIVATE=github.com/Gudapati-sai/loom
 go install github.com/Gudapati-sai/loom@latest
-$env:PATH += ";$(go env GOPATH)\bin"                  # permanent: [Environment]::SetEnvironmentVariable('Path', $env:Path + ";$(go env GOPATH)\bin", 'User')
+$env:PATH += ";$(go env GOPATH)\bin"      # permanent: [Environment]::SetEnvironmentVariable('Path', $env:Path + ";$(go env GOPATH)\bin", 'User')
 loom
 ```
 
-**bash / macOS / Linux:**
 ```bash
-export GOPRIVATE=github.com/Gudapati-sai/loom
 go install github.com/Gudapati-sai/loom@latest
 export PATH="$PATH:$(go env GOPATH)/bin"
 loom
 ```
+
+> Brand-new module? The Go checksum DB indexes newly published modules
+> asynchronously. If you see `reading https://sum.golang.org/... 404`,
+> retry in ~30 minutes, or install immediately with:
+> `$env:GOPRIVATE = "github.com/Gudapati-sai/loom"` (PowerShell) /
+> `export GOPRIVATE=github.com/Gudapati-sai/loom` (bash) before the same
+> `go install` — that routes Go straight to GitHub. Works for private
+> forks too.
 
 ### Or install from the clone (always works)
 
@@ -55,13 +54,7 @@ powershell -ExecutionPolicy Bypass -File scripts\install.ps1     # installs to $
 git clone https://github.com/Gudapati-sai/loom.git && cd loom && bash scripts/install.sh
 ```
 
-### If the repo is (or becomes) public
-
-Plain `go install github.com/Gudapati-sai/loom@latest` works directly, and the
-one-liner installer works too:
-`irm https://raw.githubusercontent.com/Gudapati-sai/loom/main/scripts/install.ps1 | iex`
-(public repos only — `raw.githubusercontent.com` serves nothing to anonymous
-users for private repos).
+One-liner (public repo): `irm https://raw.githubusercontent.com/Gudapati-sai/loom/main/scripts/install.ps1 | iex`
 
 ### Build from source
 
@@ -116,7 +109,7 @@ Compatible with any OpenAI-compatible server: Unsloth Studio (8888), Ollama (114
 
 ## Color
 
-Claude-inspired palette — terracotta `#D97757` accent, soft-gray secondary. Automatic clean **black & white** when output is piped, redirected, or `NO_COLOR=1` / `TERM=dumb`.
+Terracotta `#D97757` accents in a terminal; automatic clean black & white when output is piped, redirected, or `NO_COLOR=1` / `TERM=dumb`.
 
 <p align="center">
   <img src="screenshots/03-help.png" alt="loom help" width="640">

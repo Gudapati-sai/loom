@@ -8,8 +8,8 @@ import (
 )
 
 var (
-	titleStyle   = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("212"))
-	cursorStyle  = lipgloss.NewStyle().Foreground(lipgloss.Color("212")).Bold(true)
+	titleStyle   = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("#D97757")) // Claude terracotta
+	cursorStyle  = lipgloss.NewStyle().Foreground(lipgloss.Color("#D97757")).Bold(true)
 	explainStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("246")).Italic(true)
 	helpStyle    = lipgloss.NewStyle().Foreground(lipgloss.Color("240"))
 )

@@ -33,7 +33,7 @@ type Entry struct {
 }
 
 var (
-	stepStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("212"))
+	stepStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("#D97757")) // Claude terracotta
 	doneStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("42"))
 	warnStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("214"))
 	errStyle  = lipgloss.NewStyle().Foreground(lipgloss.Color("196"))

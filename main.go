@@ -19,6 +19,8 @@ import (
 )
 
 func main() {
+	brand.ConfigureColor()
+
 	if len(os.Args) < 2 {
 		runMenu()
 		return

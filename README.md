@@ -39,6 +39,24 @@ Flags work in any position now (`loom new myproj -llm-url x` and `loom new -llm-
 ## Traces
 Every run prints Claude-Code-style step lines (`●` in progress, `✓` done, `⚠` warning, `✗` error) and appends the same entries as structured JSON to `.loom-trace.jsonl` in the target project — one object per line, local file only, never sent anywhere. `.loom-log.md` stays the human-readable answer transcript; `.loom-trace.jsonl` is the machine-readable execution record alongside it.
 
+## Testing
+
+Quick smoke test from any directory:
+
+```
+loom                    # branded menu — pick an action and press Enter
+loom help               # banner + usage
+loom new ./demo         # scaffold: plan screen first (confirm in the TUI)
+loom status ./demo      # show the saved session as JSON
+loom resume ./demo      # continue if you stopped mid-way
+loom build              # rebuild loom from source
+loom update             # git pull (if a repo) then rebuild
+```
+
+Color behavior (Claude Code palette):
+- Real terminal → terracotta `#D97757` accent (banner, cursor, step dots) with soft-gray secondary.
+- Piped or redirected output, `NO_COLOR=1`, or `TERM=dumb` → automatic clean black & white, no escape codes.
+
 ## Verified working (this build)
 - `go build` / `go vet` clean.
 - Full `loom new` run end-to-end through a real pty: welcome → stack choice → plan screen (always shown) → confirm → 13 fixed files written → PRD drafted → quality gate passed → state + provenance log + trace written.

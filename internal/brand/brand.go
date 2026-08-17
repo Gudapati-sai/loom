@@ -5,18 +5,27 @@ package brand
 
 import (
 	"fmt"
+	"os"
 	"strings"
 
 	"github.com/charmbracelet/lipgloss"
+	"github.com/muesli/termenv"
 )
 
 // Version is the current release, shown under the logo.
 const Version = "1.0.0"
 
+// Claude-inspired palette: the warm terracotta accent and soft gray
+// secondary Claude Code uses, so loom shares its calm, professional look.
+const (
+	accent = "#D97757" // Claude terracotta
+	muted  = "#ADADAD" // soft gray
+)
+
 var (
-	artStyle  = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("63"))
-	subStyle  = lipgloss.NewStyle().Foreground(lipgloss.Color("246"))
-	ruleStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("63"))
+	artStyle  = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color(accent))
+	subStyle  = lipgloss.NewStyle().Foreground(lipgloss.Color(muted))
+	ruleStyle = lipgloss.NewStyle().Foreground(lipgloss.Color(accent))
 )
 
 const art = `██╗      ██████╗  ██████╗ ███╗   ███╗
@@ -25,6 +34,25 @@ const art = `██╗      ██████╗  ██████╗ ██�
 ██║     ██║   ██║██║   ██║██║╚██╔╝██║
 ███████╗╚██████╔╝╚██████╔╝██║ ╚═╝ ██║
 ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝`
+
+// ConfigureColor switches the whole UI to the black-and-white (Ascii)
+// color profile when color would be lost or unwanted: NO_COLOR is set,
+// TERM=dumb, or stdout isn't a terminal (pipes, files, CI logs). Called
+// once at startup so the banner, tracer, and TUI all render in clean
+// black & white there. In a real terminal the Claude palette is used.
+func ConfigureColor() {
+	if os.Getenv("NO_COLOR") != "" || os.Getenv("TERM") == "dumb" || !stdoutIsTerminal() {
+		lipgloss.SetColorProfile(termenv.Ascii)
+	}
+}
+
+func stdoutIsTerminal() bool {
+	fi, err := os.Stdout.Stat()
+	if err != nil {
+		return false
+	}
+	return fi.Mode()&os.ModeCharDevice != 0
+}
 
 // Banner renders the logo, tagline, and version for a professional launch
 // header, e.g. before the wizard, the menu, or help.

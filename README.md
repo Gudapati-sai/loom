@@ -13,6 +13,7 @@ go build -o loom .
 
 ## Run
 ```
+loom                           open the branded menu (bare "loom", like Claude Code / grok)
 ./loom new ./my-project        # scaffold a new project
 ./loom retrofit ./some-repo    # adopt the kit into an existing repo
 ./loom resume ./my-project     # continue an interrupted session
@@ -21,6 +22,8 @@ go build -o loom .
 ./loom update                  # pull latest source (if a git repo) then rebuild
 ./loom help
 ```
+
+Every launch shows the **LOOM logo banner** (ASCII art + version) before the wizard or menu, keeping the CLI looking professional and consistent.
 
 Every run prints the resolved absolute `target:` path first — no ambiguity about which directory it's operating on, regardless of where you're standing when you run it. The wizard then **runs from inside that directory** (it chdirs into the target), so anything it spawns — like the LLM backend — inherits the project as its working directory.
 

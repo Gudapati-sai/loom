@@ -18,46 +18,52 @@
 
 ## Install
 
-Install once, then use `loom` anywhere. Three ways:
+Install once, then use `loom` anywhere.
 
-### 1. One-command installer (recommended, works everywhere)
+### Quick — private-repo safe (recommended)
 
-Builds from source with the committed `go.sum`, so it works even where the
-checksum DB hasn't indexed the module yet.
+> Your repo can be private. Go's module proxy and checksum DB (`sum.golang.org`)
+> cannot reach private repositories, so a plain `go install` fails with
+> `404 Not Found`. Setting `GOPRIVATE` makes Go fetch straight from GitHub
+> using your cached git credentials instead. **Verified working.**
 
 **PowerShell:**
 ```powershell
-irm https://raw.githubusercontent.com/Gudapati-sai/loom/main/scripts/install.ps1 | iex
+$env:GOPRIVATE = "github.com/Gudapati-sai/loom"      # permanent: go env -w GOPRIVATE=github.com/Gudapati-sai/loom
+go install github.com/Gudapati-sai/loom@latest
+$env:PATH += ";$(go env GOPATH)\bin"                  # permanent: [Environment]::SetEnvironmentVariable('Path', $env:Path + ";$(go env GOPATH)\bin", 'User')
+loom
 ```
 
 **bash / macOS / Linux:**
 ```bash
-curl -sSL https://raw.githubusercontent.com/Gudapati-sai/loom/main/scripts/install.sh | bash
-```
-
-The installer puts `loom` in `$(go env GOPATH)/bin` and prints the PATH line
-if that directory isn't on your PATH yet.
-
-### 2. `go install` (the npm-equivalent, on machines with normal Go proxy access)
-
-```bash
+export GOPRIVATE=github.com/Gudapati-sai/loom
 go install github.com/Gudapati-sai/loom@latest
-export PATH="$PATH:$(go env GOPATH)/bin"    # one-time, bash
+export PATH="$PATH:$(go env GOPATH)/bin"
+loom
 ```
+
+### Or install from the clone (always works)
 
 ```powershell
-go install github.com/Gudapati-sai/loom@latest
-$env:PATH += ";$(go env GOPATH)\bin"        # one-time, current session
+git clone https://github.com/Gudapati-sai/loom.git
+cd loom
+powershell -ExecutionPolicy Bypass -File scripts\install.ps1     # installs to $(go env GOPATH)\bin and prints the PATH line
 ```
 
-> **Brand-new module, sumdb 404?** `sum.golang.org` can take a few minutes
-> to index a freshly published module. If you see
-> `reading https://sum.golang.org/... 404 Not Found`, retry in a few
-> minutes, or bypass verification for this one install:
-> `GOSUMDB=off go install github.com/Gudapati-sai/loom@latest`.
-> Pin a version with `@v1.0.0` for reproducibility.
+```bash
+git clone https://github.com/Gudapati-sai/loom.git && cd loom && bash scripts/install.sh
+```
 
-### 3. Build from source
+### If the repo is (or becomes) public
+
+Plain `go install github.com/Gudapati-sai/loom@latest` works directly, and the
+one-liner installer works too:
+`irm https://raw.githubusercontent.com/Gudapati-sai/loom/main/scripts/install.ps1 | iex`
+(public repos only — `raw.githubusercontent.com` serves nothing to anonymous
+users for private repos).
+
+### Build from source
 
 ```bash
 git clone https://github.com/Gudapati-sai/loom.git && cd loom && go build -o loom . && ./loom

@@ -7,8 +7,8 @@
 # PATH line if the Go bin dir isn't already on PATH.
 #
 # Usage:
-#   curl -sSL https://raw.githubusercontent.com/Gudapati-sai/loom/main/scripts/install.sh | bash
-#   # or: bash scripts/install.sh   (with an optional version: bash install.sh v1.0.0)
+#   git clone https://github.com/Gudapati-sai/loom.git && cd loom && bash scripts/install.sh
+#   # optional version: bash scripts/install.sh v1.0.0
 
 set -euo pipefail
 VERSION="${1:-v1.0.0}"

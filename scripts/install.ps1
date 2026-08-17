@@ -5,11 +5,10 @@
 # brand-new module. Installs to $(go env GOPATH)\bin\loom.exe and prints the
 # PATH line if the Go bin dir isn't already on PATH.
 #
-# Usage (from anywhere):
+# Usage:
+#   git clone https://github.com/Gudapati-sai/loom.git; cd loom
 #   powershell -ExecutionPolicy Bypass -File scripts\install.ps1
-# or, without cloning:
-#   irm https://raw.githubusercontent.com/Gudapati-sai/loom/main/scripts/install.ps1 | iex
-#
+# (For a private repo, clone first — the raw one-liner needs a public repo.)
 # Optional: pass a version tag, e.g. -Version v1.0.0
 
 param([string]$Version = "v1.0.0")

@@ -1,0 +1,19 @@
+[0mtarget: C:\Users\saigu\Downloads\loom-source\demo-shot[0K[?25l
+[0;31;91m██╗      ██████╗  ██████╗ ███╗   ███╗[0m[0K
+[0;31;91m██║     ██╔═══██╗██╔═══██╗████╗ ████║[0m[0K
+[0;31;91m██║     ██║   ██║██║   ██║██╔████╔██║[0m[0K
+[0;31;91m██║     ██║   ██║██║   ██║██║╚██╔╝██║[0m[0K
+[0;31;91m███████╗╚██████╔╝╚██████╔╝██║ ╚═╝ ██║[0m[0K
+[0;31;91m╚══════╝ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝[0m[0K
+Project Setup Wizard  ·  AGENTS.md kit  ·  LLM-assisted questions  ·  v1.0.0[0K
+[0;31;91m────────────────────────────────────────────────[0m[0K
+[0;31;91m●[0m checking for a local model at http://localhost:8888[0K
+[0K[?25h[?25l[0;33m⚠[0m no backend running at http://localhost:8888 (Get "http://localhost:8888/v1/mo[0Kd
+els": dial tcp [::1]:8888: connectex: No connection could be made because the t[0Ka
+rget machine actively refused it.) and launching is disabled — using the built-[0Ki
+n question set[0K
+[0;31;91mWhat's the project called?[0m[0K
+[0K
+> █[0K
+[0K
+[0;37;90menter to confirm · ctrl+c to quit[0m[0K[?1005l[?1000h[?1002h[?1003h[?1015h[?1006hAssertion failed: ASSERT_CONDITION("wp != nullptr && cols > 0 && rows > 0"), file src/libwinpty/winpty.cc, line 924

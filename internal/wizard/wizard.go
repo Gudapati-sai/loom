@@ -11,14 +11,14 @@ import (
 	"strings"
 	"time"
 
-	"loom/internal/backend"
-	"loom/internal/detect"
-	"loom/internal/llm"
-	"loom/internal/phase"
-	"loom/internal/provenance"
-	"loom/internal/render"
-	"loom/internal/trace"
-	"loom/internal/tui"
+	"github.com/Gudapati-sai/loom/internal/backend"
+	"github.com/Gudapati-sai/loom/internal/detect"
+	"github.com/Gudapati-sai/loom/internal/llm"
+	"github.com/Gudapati-sai/loom/internal/phase"
+	"github.com/Gudapati-sai/loom/internal/provenance"
+	"github.com/Gudapati-sai/loom/internal/render"
+	"github.com/Gudapati-sai/loom/internal/trace"
+	"github.com/Gudapati-sai/loom/internal/tui"
 )
 
 // askQuestion tries the local model, retries once, then falls back to the

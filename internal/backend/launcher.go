@@ -16,7 +16,7 @@ import (
 	"strings"
 	"time"
 
-	"loom/internal/llm"
+	"github.com/Gudapati-sai/loom/internal/llm"
 )
 
 // Launcher holds everything needed to attach to or start the backend.

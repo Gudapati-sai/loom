@@ -1,0 +1,55 @@
+[0;31;91m██╗      ██████╗  ██████╗ ███╗   ███╗[0m[0K[?25l
+[0;31;91m██║     ██╔═══██╗██╔═══██╗████╗ ████║[0m[0K
+[0;31;91m██║     ██║   ██║██║   ██║██╔████╔██║[0m[0K
+[0;31;91m██║     ██║   ██║██║   ██║██║╚██╔╝██║[0m[0K
+[0;31;91m███████╗╚██████╔╝╚██████╔╝██║ ╚═╝ ██║[0m[0K
+[0;31;91m╚══════╝ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝[0m[0K
+Project Setup Wizard  ·  AGENTS.md kit  ·  LLM-assisted questions  ·  v1.0.0[0K
+[0;31;91m────────────────────────────────────────────────[0m[0K
+loom — TUI project-setup wizard[0K
+[0K
+Usage:[0K
+  loom [menu]                  open the interactive menu (bare "loom")[0K
+  loom new [dir] [flags]       scaffold a new project (default dir: current dir[0Ke
+ctory)[0K
+  loom retrofit [dir] [flags]  adopt the kit into an existing repo (default: cu[0Kr
+rent directory)[0K
+  loom resume [dir] [flags]    continue an in-progress session (default: curren[0Kt
+ directory)[0K
+  loom status [dir]            show current phase/progress (default: current di[0Kr
+ectory)[0K
+  loom build                   rebuild the loom binary from source (LOOM_SRC, o[0Kr
+ the binary's own dir)[0K
+  loom update                  pull latest source (if a git repo) and rebuild[0K
+  loom help                    this help[0K
+[0K
+Flags (work in any position):[0K
+  -llm-url string       local OpenAI-compatible model server — Unsloth Studio ([0K8
+888),[0K
+                        Ollama (11434), llama.cpp server (8080), LM Studio (123[0K4
+)[0K
+                        (default "http://localhost:8888"; env UNSLOTH_URL)[0K
+  -llm-model string     model name to request if the server is available (defau[0Kl
+t "loom-wizard")[0K
+  -unsloth-cmd string   launch command for the LLM backend when it isn't runnin[0Kg
+;[0K
+                        empty disables launching, attach-only (default "unsloth[0K
+studio"; env UNSLOTH_CMD)[0K
+  -unsloth-timeout int  seconds to wait for a launched backend to become ready [0K(
+default 45)[0K
+[0K
+Every run prints the resolved absolute "target:" path first, and the[0K
+wizard then runs from inside that directory — anything it launches (like[0K
+the LLM backend) inherits the project as its working directory. The file[0K
+plan is always shown inside the TUI and confirmed before anything is[0K
+written.[0K
+[0K
+The LLM backend is attach-or-launch: if Unsloth Studio is already running[0K
+it attaches; if not, it launches it via -unsloth-cmd and waits until it[0K
+answers. With no local model at all it falls back to a built-in question[0K
+set automatically, and says so.[0K
+[0K
+"loom build" and "loom update" are self-updating and machine-portable: the[0K
+source tree is found via the LOOM_SRC env var, or next to the binary if[0K
+that directory has a go.mod.[0K
+[0K[?25hAssertion failed: ASSERT_CONDITION("wp != nullptr && cols > 0 && rows > 0"), file src/libwinpty/winpty.cc, line 924

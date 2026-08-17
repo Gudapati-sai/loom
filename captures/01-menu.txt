@@ -1,0 +1,20 @@
+[0m[0K[?25l[0;31;91m██╗      ██████╗  ██████╗ ███╗   ███╗[0m[0K
+[0;31;91m██║     ██╔═══██╗██╔═══██╗████╗ ████║[0m[0K
+[0;31;91m██║     ██║   ██║██║   ██║██╔████╔██║[0m[0K
+[0;31;91m██║     ██║   ██║██║   ██║██║╚██╔╝██║[0m[0K
+[0;31;91m███████╗╚██████╔╝╚██████╔╝██║ ╚═╝ ██║[0m[0K
+[0;31;91m╚══════╝ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝[0m[0K
+Project Setup Wizard  ·  AGENTS.md kit  ·  LLM-assisted questions  ·  v1.0.0[0K
+[0;31;91m────────────────────────────────────────────────[0m[0K
+[0;31;91mWhat would you like to do?[0m[0K
+[0K
+[0;31;91m> [0mScaffold a new project[0K
+    [0;37;90mloom new — create a project with the AGENTS.md kit (plan confirmed in the T[0KU
+[0m  Retrofit an existing repo[0K
+  Resume an in-progress session[0K
+  Show session status[0K
+  Build loom from source[0K
+  Update loom from git[0K
+  Help[0K
+[0K
+[0;37;90m↑/↓ to move · enter to choose · ctrl+c to quit[0m[0K[?1005l[?1000h[?1002h[?1003h[?1015h[?1006hAssertion failed: ASSERT_CONDITION("wp != nullptr && cols > 0 && rows > 0"), file src/libwinpty/winpty.cc, line 924

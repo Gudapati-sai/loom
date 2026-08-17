@@ -1,4 +1,4 @@
-module loom
+module github.com/Gudapati-sai/loom
 
 go 1.22.2
 

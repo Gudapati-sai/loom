@@ -1,0 +1,3 @@
+[0mtarget: C:\Users\saigu\Downloads\loom-source\demo-shot[0K[?25l
+no loom session found in C:\Users\saigu\Downloads\loom-source\demo-shot[0K
+[0K[?25hAssertion failed: ASSERT_CONDITION("wp != nullptr && cols > 0 && rows > 0"), file src/libwinpty/winpty.cc, line 924

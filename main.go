@@ -9,13 +9,13 @@ import (
 	"strings"
 	"time"
 
-	"loom/internal/backend"
-	"loom/internal/brand"
-	"loom/internal/llm"
-	"loom/internal/phase"
-	"loom/internal/selfupdate"
-	"loom/internal/tui"
-	"loom/internal/wizard"
+	"github.com/Gudapati-sai/loom/internal/backend"
+	"github.com/Gudapati-sai/loom/internal/brand"
+	"github.com/Gudapati-sai/loom/internal/llm"
+	"github.com/Gudapati-sai/loom/internal/phase"
+	"github.com/Gudapati-sai/loom/internal/selfupdate"
+	"github.com/Gudapati-sai/loom/internal/tui"
+	"github.com/Gudapati-sai/loom/internal/wizard"
 )
 
 func main() {

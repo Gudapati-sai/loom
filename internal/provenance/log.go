@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"loom/internal/phase"
+	"github.com/Gudapati-sai/loom/internal/phase"
 )
 
 // orderedKeys puts the standard flow's questions in a sensible reading

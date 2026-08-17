@@ -1,0 +1,17 @@
+# built binary (produced by `loom build` / `go build -o loom .`)
+/loom
+/loom.exe
+*.tmp
+
+# runtime artifacts — never commit these
+.loom-state.json
+.loom-log.md
+.loom-trace.jsonl
+.loom-unsloth.log
+
+# misc
+.DS_Store
+Thumbs.db
+
+# ZCode workspace artifacts (plans, config)
+.zcode/

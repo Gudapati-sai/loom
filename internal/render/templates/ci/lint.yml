@@ -1,0 +1,22 @@
+name: Lint
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Python example below — swap for your stack (eslint, dart analyze, ktlint) but keep this structure.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install lint tools
+        run: pip install ruff mypy
+      - name: Ruff
+        run: ruff check .
+      - name: Mypy
+        run: mypy . --ignore-missing-imports

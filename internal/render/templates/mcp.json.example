@@ -1,0 +1,8 @@
+{
+  "_comment": "Template only — exact schema depends on which agent tool loads this. Verify against that tool's current docs before relying on this as-is.",
+  "mcpServers": {
+    "github": { "description": "Read/write access to this repo's issues, PRs, and code search", "url": "https://api.github.com" },
+    "docs": { "description": "Read-only access to current library/framework docs", "url": "<your-docs-mcp-endpoint>" },
+    "filesystem": { "description": "Scoped read access to this repo only", "scope": "./" }
+  }
+}

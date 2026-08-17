@@ -18,35 +18,55 @@
 
 ## Install
 
-**Install once, then use `loom` anywhere** (Go's equivalent of `npm install -g`):
+Install once, then use `loom` anywhere. Three ways:
+
+### 1. One-command installer (recommended, works everywhere)
+
+Builds from source with the committed `go.sum`, so it works even where the
+checksum DB hasn't indexed the module yet.
+
+**PowerShell:**
+```powershell
+irm https://raw.githubusercontent.com/Gudapati-sai/loom/main/scripts/install.ps1 | iex
+```
+
+**bash / macOS / Linux:**
+```bash
+curl -sSL https://raw.githubusercontent.com/Gudapati-sai/loom/main/scripts/install.sh | bash
+```
+
+The installer puts `loom` in `$(go env GOPATH)/bin` and prints the PATH line
+if that directory isn't on your PATH yet.
+
+### 2. `go install` (the npm-equivalent, on machines with normal Go proxy access)
 
 ```bash
 go install github.com/Gudapati-sai/loom@latest
-
-# make sure the Go bin directory is on your PATH (one-time, bash):
-export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"    # one-time, bash
 ```
-
-**PowerShell** (the `@latest` install is the same; note PS 5.1 has no `&&`):
 
 ```powershell
 go install github.com/Gudapati-sai/loom@latest
-$env:PATH += ";$(go env GOPATH)\bin"   # one-time, current session
-# persist with: [Environment]::SetEnvironmentVariable("Path", $env:Path + ";$(go env GOPATH)\bin", "User")
+$env:PATH += ";$(go env GOPATH)\bin"        # one-time, current session
 ```
 
-**Or build from source:**
+> **Brand-new module, sumdb 404?** `sum.golang.org` can take a few minutes
+> to index a freshly published module. If you see
+> `reading https://sum.golang.org/... 404 Not Found`, retry in a few
+> minutes, or bypass verification for this one install:
+> `GOSUMDB=off go install github.com/Gudapati-sai/loom@latest`.
+> Pin a version with `@v1.0.0` for reproducibility.
+
+### 3. Build from source
 
 ```bash
 git clone https://github.com/Gudapati-sai/loom.git && cd loom && go build -o loom . && ./loom
 ```
 
 ```powershell
-# PowerShell 5.1 — use ';' instead of '&&'
+# PowerShell 5.1 has no '&&' — use ';' instead
 git clone https://github.com/Gudapati-sai/loom.git; cd loom; go build -o loom.exe .; .\loom.exe
 ```
-
-> `go.mod` keeps `replace` lines pointing `golang.org/x/*` at their `github.com/golang/*` mirrors (a sandbox network workaround). They're harmless — or delete them and re-run `go mod tidy` on a normal machine.
 
 ## Quick start
 
